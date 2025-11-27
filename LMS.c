@@ -110,6 +110,7 @@ void addBook(){
     count++;
 
     printf("\nBook Added Successfully!\n");
+    saveFile();
 
     return;
 }
@@ -135,6 +136,7 @@ void removeBook(){
 
     if(found){
         printf("Book Removed Successfully!\n");
+        saveFile();
     }
     else{
         printf("Book Not Found!\n");
@@ -181,6 +183,7 @@ void markReadStatus(){
 
     if(found){
         printf("Book Marked as Read!\n");
+        saveFile();
     }
     else{
         printf("Book not found!\n");
@@ -200,13 +203,14 @@ void issueBook(){
     for(int i=0; i<count; i++){
         if(books[i].id == id){
             if(books[i].isIssued){
-                printf("Book is Already Issue!\n");
+                printf("Book is Already Issued!\n");
                 return;
             }
             else{
                 books[i].isIssued = true;
                 found = true;
                 printf("Book is Issued!\n");
+                saveFile();
                 return;
             }
         }
@@ -233,6 +237,7 @@ void returnBook(){
                 books[i].isIssued = false;
                 found = true;
                 printf("Book Removed!\n");
+                saveFile();
                 return;
             }
             else{
