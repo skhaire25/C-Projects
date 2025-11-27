@@ -37,8 +37,7 @@ int main(){
         printf("4. Mark as Read / Unread\n");
         printf("5. Issue Book\n");
         printf("6. Return Book\n");
-        printf("7. Save\n");
-        printf("8. Exit\n");
+        printf("7. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -62,15 +61,12 @@ int main(){
             returnBook();
             break;
             case 7:
-            saveFile();
-            break;
-            case 8:
             printf("\nThanks for using my LMS!\n");
             break;
             default:
             printf("\nInvalid Choice\n");
         }
-    }while(choice != 8);
+    }while(choice != 7);
 
     return 0;
 }
@@ -270,7 +266,7 @@ void saveFile(){
     }
 
     fclose(writeFile);
-    printf("\nLibrary Saved Successfully!\n");
+    printf("\nSaved to Library Successfully!\n");
 
     return;
 }
