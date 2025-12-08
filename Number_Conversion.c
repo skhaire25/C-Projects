@@ -7,6 +7,7 @@ void DecToBin(int dec){
     int rem;
     int arr[10];
     int i = 0;
+    int decimal = dec;
 
     if(dec == 0){
         printf("Binary of 0 --> 0");
@@ -20,7 +21,7 @@ void DecToBin(int dec){
         i++;
     }
 
-    printf("Binary of %d --> ", dec);
+    printf("Binary of %d --> ", decimal);
     for(int j=i-1; j >= 0; j--){
         printf("%d", arr[j]);
     }
@@ -43,6 +44,7 @@ int BinToDec(int bin){
         }
         else{
             printf("It's not a Binary number!");
+            return -1;
         }
         power++;
     }
@@ -63,6 +65,7 @@ int OctToDec(int oct){
         }
         else{
             printf("It's not a Octal number!");
+            return -1;
         }
         power++;
     }
@@ -151,9 +154,7 @@ int main()
         break;
 
     case 2:
-        printf("Binary: ");
         DecToBin(decValue);
-        printf("\n");
         break;
 
     case 3:
