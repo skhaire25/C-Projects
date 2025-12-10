@@ -80,6 +80,7 @@ int main(){
     }while(choice != 6);
 
     free(students);
+    students = NULL;
     return 0;
 }
 
