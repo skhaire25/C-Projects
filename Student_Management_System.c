@@ -17,7 +17,7 @@ int count = 0;
 int capacity = 0;
 
 void clearBuffer();
-void checkCapacity();
+bool checkCapacity();
 void addStudents();
 void viewStudents();
 void searchStudent();
@@ -29,7 +29,6 @@ void newID();
 void newName();
 void newRoll();
 void newMarks();
-void studentStatus();
 
 int main(){
 
@@ -91,22 +90,25 @@ void clearBuffer(void){
     }
 }
 
-void checkCapacity(){
+bool checkCapacity(){
     if(count >= capacity){
         int newCapacity = (capacity == 0) ? 2 : capacity*2;
         Student *temp = realloc(students, newCapacity * sizeof(Student));
         if (temp == NULL){
-            printf("\nMemory allocation failed!");
-            return;
+            return false;
         }
         students = temp;
         capacity = newCapacity;
     }
+    return true;
 }
 
 void addStudents(){
 
-    checkCapacity();
+    if(checkCapacity == false){
+        printf("Memory allocation failed!");
+        return;
+    }
 
     int newID = 0, newRoll = 0;
     float newMarks = 0.0;
@@ -532,10 +534,5 @@ void newMarks(){
         }
     }
     printf("Student not found!\n");
-    return;
-}
-
-void studentStatus(){
-
     return;
 }
